@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bar.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="x-icon" href="image/LAP.png">
+    <title></title>
+</head>
+<body>
+    <div id="sideNav">
+        <nav>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="realtime.html">REAL TIME UPDATE</a></li>
+            <li><a href="index.html">LOG OUT</a></li>
+            
+        </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="image/menu.png" id="menu">
+    </div>
+
+    <div class="container">
+        <div class="chart">
+            <canvas id = "barchart" width="300" height="300"></canvas>
+        </div>
+        <div class="chart">
+            <canvas id = "doughnut" width="300" height="300"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    <script src="bar.js"></script>
+    <script src="bar2.js"></script>
+    
+
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="subscribe.css">
+    <link rel="shortcut icon" type="x-icon" href="image/LAP.png">
+    <title>Subscribe</title>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html"><img src="image/LAP.png"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()" aria-hidden="true"></i>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="index.html">LOG OUT</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()" aria-hidden="true"></i>
+    </nav>
+
+    <section class="header">
+        <h1>Subscribe to Lease and Produce Now!</h1>
+    </section>
+
+    <section class="destination-list" id="destinationList">
+
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const destinations = [
+                { name: '1 Month', image: 'image/LAP.png', description: 'Subscribe for 1 month?' },
+                { name: '3 Months', image: 'image/LAP.png', description: 'Subscribe for 3 months?' },
+                { name: '6 Months', image: 'image/LAP.png', description: 'Subscribe for 6 months?' },
+                { name: '12 Months', image: 'image/LAP.png', description: 'Subscribe for 12 months?' },
+            ];
+
+            const destinationList = document.getElementById('destinationList');
+
+            destinations.forEach(destination => {
+                const card = document.createElement('div');
+                card.classList.add('destination-card');
+
+                const image = document.createElement('img');
+                image.src = destination.image;
+                image.alt = destination.name;
+
+                const info = document.createElement('div');
+                info.classList.add('info');
+
+                const heading = document.createElement('h3');
+                heading.textContent = destination.name;
+
+                const description = document.createElement('p');
+                description.textContent = destination.description;
+
+                info.appendChild(heading);
+                info.appendChild(description);
+
+                card.addEventListener('click', () => showBookingConfirmation(destination.name));
+
+                card.appendChild(image);
+                card.appendChild(info);
+
+                destinationList.appendChild(card);
+            });
+
+            function showBookingConfirmation(destinationName) {
+                const confirmation = confirm(`Do you want to subscribe for ${destinationName}?`);
+                if (confirmation) {
+                    redirectToTicketPage(destinationName);
+                }
+            }
+
+            function redirectToTicketPage(destinationName) {
+                const ticketPageURL = `${destinationName.toLowerCase()}_ticket.html`;
+                window.location.href = ticketPageURL;
+            }
+        });
+    </script>
+</body>
+</html>

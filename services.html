@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="image/LAP.png">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <title>services</title>
+</head>
+<body>
+
+    <section id="banner">
+        <img src="image/LAP.png" class="logo">
+        <div class="banner-text">
+            <h1> LEASE AND PRODUCE</h1>
+            <div class="banner-btn">
+            </div>
+        </div>
+    <div id="sideNav">
+        <nav>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="cfeedback.html">TESTIMONIALS</a></li>
+            <li><a href="bar.html">SALES MONITOR</a></li>
+            <li><a href="index.html">LOG OUT</a></li>
+            
+        </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="image/menu.png" id="menu">
+    </div>
+
+    <section id="service">
+        <div class="title-text">
+            <p>SERVICES</p>
+            <h1>We Provide What You Need</h1>
+            </div>
+            <div class="service-box">
+                <div class="single-service">
+                    <img src="image/LAP.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>SALES MONITORING Dashboard</h3>
+                        <hr>
+                        <p>Gain crucial insights into sales performance, identify trends, and make data-driven decisions to boost sales. Increase transparency and accountability across your organization, fostering trust and collaboration among teams.
+                            Motivate sales reps with real-time feedback and data visualization, driving improved performance and customer satisfaction.
+                        </p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="image/LAP.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>CUSTOMER PAGE</h3>
+                        <hr>
+                        <p>Showcasing your customers and their success stories builds trust with potential buyers, increasing conversions. Provide a platform for customers to interact with your brand, share experiences, and foster community.
+                            Highlighting positive customer feedback strengthens your brand image and attracts new customers.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="image/LAP.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3>BUILDING TRUST</h3>
+                        <hr>
+                        <p>Trust is the foundation of any successful business transaction. When users trust your webpage and its services, they are more likely to convert into paying customers. This leads to increased revenue and profitability for your business.</p>
+                    </div>
+                </div>
+                <div class="single-service">
+                    <img src="image/LAP.png">
+                    <div class="overlay"></div>
+                    <div class="service-desc">
+                        <h3></h3>
+                        <hr>
+                        <p></p>
+                    </div>
+                
+                </div>
+            </div>
+    </section>
+
+    <script>
+        var menuBtn = document.getElementById("menuBtn")
+        var sideNav = document.getElementById("sideNav")
+        var menu = document.getElementById("menu")
+        
+        sideNav.style.right = "-250px";
+        
+        menuBtn.onclick = function(){
+            if(sideNav.style.right == "-250px"){
+                sideNav.style.right = "0";
+                menu.src = "image/close.png";
+            }
+            else{
+                sideNav.style.right = "-250px";
+                menu.src = "image/menu.png";
+                
+            }
+        }
+        
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 1000,
+            speedAsDuration: true
+        });
+        </script>
+
+
+
+</body>
+</html>

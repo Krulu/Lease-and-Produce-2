@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="LAP.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="image/LAP.png">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <link rel="stylesheet" href="realtime.css">
+    <title>Real Time Update</title>
+</head>
+
+<body>
+    <div id="sideNav">
+        <nav>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="bar.html">SALES MONITOR</a></li>
+            <li><a href="index.html">LOG OUT</a></li>
+            
+        </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="image/menu.png" id="menu">
+    </div>
+    <canvas id="salesGraph" width="800" height="400"></canvas>
+
+
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            background: #d4bdde;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        canvas {
+            border: 1px solid #000000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 10px;
+            width: 25%;
+            text-align: center;
+        }
+        
+        nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: transparent;
+            color: #d36262;
+        }
+    </style>
+
+
+
+
+    <script>
+        const canvas = document.getElementById('salesGraph');
+        const ctx = canvas.getContext('2d');
+        const graphWidth = canvas.width;
+        const graphHeight = canvas.height;
+
+        const salesData = Array.from({ length: 100 }, () => Math.floor(Math.random() * 10000));
+        const labels = Array.from({ length: 15 }, (_, i) => (i + 1) * 1000).sort((a, b) => a - b);
+
+        let isPaused = false;
+        let offsetX = 0;
+
+        function updateSales() {
+            if (!isPaused) {
+                const newSale = Math.floor(Math.random() * 10000);
+                salesData.push(newSale);
+                if (salesData.length > 100) {
+                    salesData.shift();
+                }
+
+                drawGraph();
+            }
+
+            setTimeout(updateSales, 100);
+        }
+
+        function drawGraph() {
+            ctx.clearRect(0, 0, graphWidth, graphHeight);
+
+            ctx.beginPath();
+            ctx.moveTo(-offsetX, graphHeight / 2);
+            ctx.lineTo(graphWidth - offsetX, graphHeight / 2);
+            ctx.strokeStyle = '#ccc';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(-offsetX, graphHeight - (salesData[0] / 100) * graphHeight);
+
+            for (let i = 1; i < salesData.length; i++) {
+                const x = ((i - offsetX) / salesData.length) * graphWidth;
+                const y = graphHeight - (salesData[i] / 10000) * graphHeight;
+                ctx.lineTo(x, y);
+
+                ctx.fillStyle = '#333';
+                ctx.font = '12px Arial';
+                ctx.fillText(salesData[i], x, y - 5);
+            }
+    
+            ctx.fillStyle = '#333';
+            ctx.font = '12px Arial';
+            for (let i = 0; i < labels.length; i++) {
+                const labelX = (i / (labels.length - 1)) * graphWidth - offsetX;
+                ctx.fillText(labels[i], labelX, graphHeight / 2 + 20);
+            }
+
+            ctx.strokeStyle = '#4CAF50';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+        }
+
+        function pauseResume() {
+            isPaused = !isPaused;
+
+            if (!isPaused) {
+                updateSales();
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'ArrowLeft') {
+                offsetX += 10;
+            } else if (event.key === 'ArrowRight') {
+                offsetX -= 10;
+            }
+        }
+
+        updateSales();
+
+        document.addEventListener('keydown', handleKeyPress);
+        canvas.addEventListener('click', pauseResume);
+
+var menuBtn = document.getElementById("menuBtn")
+var sideNav = document.getElementById("sideNav")
+var menu = document.getElementById("menu")
+
+sideNav.style.right = "-250px";
+
+menuBtn.onclick = function(){
+    if(sideNav.style.right == "-250px"){
+        sideNav.style.right = "0";
+        menu.src = "image/close.png";
+    }
+    else{
+        sideNav.style.right = "-250px";
+        menu.src = "image/menu.png";
+        
+    }
+}
+
+var scroll = new SmoothScroll('a[href*="#"]', {
+	speed: 1000,
+	speedAsDuration: true
+});
+    
+    </script>
+</body>
+
+</html>

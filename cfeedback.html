@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="x-icon" href="image/LAP.png">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <title>Customers Feedback</title>
+</head>
+<body>
+    <div id="sideNav">
+        <nav>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="bar.html">SALES MONITOR</a></li>
+            <li><a href="index.html">LOG OUT</a></li>
+            
+        </ul>
+        </nav>
+    </div>
+    <div id="menuBtn">
+        <img src="image/menu.png" id="menu">
+    </div>
+
+    <!-- Testimonial-->
+
+<section id="testimonial">
+    <div class="title-text">
+        <p>TESTIMONIAL</p>
+        <h1>CUSTOMER FEEDBACK</h1>
+        </div>
+        <div class="testimonial-row">
+            <div class="testimonial-col">
+                <div class="user">
+                    <img src="image/image ko.jpg">
+                    <div class="user-info">
+                        <h4> sparklingshinyshin <i class="fa fa-twitter"></i></h4>
+                        <small>@kentttyy</small>
+                    </div>
+                </div>
+                <p>Showcasing your customers and their success stories builds trust with potential buyers, increasing conversions. Provide a platform for customers to interact with your brand, share experiences, and foster community.  Highlighting positive customer feedback strengthens your brand image and attracts new customers.</p>
+            </div>
+            <div class="testimonial-col">
+                <div class="user">
+                    <img src="image/van.jpg">
+                    <div class="user-info">
+                        <h4>Stan <i class="fa fa-twitter"></i></h4>
+                        <small>@stannny_</small>
+                    </div>
+                </div>
+                <p>I love that I can access all my customer information and interactions in one place on the customer page. It makes it so much easier to manage my relationships with customers.</p>
+            </div>
+            <div class="testimonial-col">
+                <div class="user">
+                    <img src="image/chae.jpg">
+                    <div class="user-info">
+                        <h4>Chaeee<i class="fa fa-twitter"></i></h4>
+                        <small>@chaeyo.O<small>
+                        </div>
+                    </div>
+                    <p>I'm impressed by the level of detail provided on the customer page. It's clear that the developers put a lot of thought into making it user-friendly and informative.</p>
+            </div>
+            
+</section>
+
+<script>
+    var menuBtn = document.getElementById("menuBtn")
+    var sideNav = document.getElementById("sideNav")
+    var menu = document.getElementById("menu")
+    
+    sideNav.style.right = "-250px";
+    
+    menuBtn.onclick = function(){
+        if(sideNav.style.right == "-250px"){
+            sideNav.style.right = "0";
+            menu.src = "image/close.png";
+        }
+        else{
+            sideNav.style.right = "-250px";
+            menu.src = "image/menu.png";
+            
+        }
+    }
+    
+    var scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 1000,
+        speedAsDuration: true
+    });
+    </script>
+    
+</body>
+</html>
